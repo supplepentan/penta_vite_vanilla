@@ -1,7 +1,7 @@
 export default class Header {
     get html() {
         return `
-        <header>
+        <header class="header">
         <div>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
           <div class="container-fluid">

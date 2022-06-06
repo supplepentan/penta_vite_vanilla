@@ -1,6 +1,7 @@
-export default class Header {
-    get html() {
-        return `
+export default class AreaHeader {
+  static methodz = () => { }
+  static html = () => {
+    return `
         <header class="header">
         <div>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -42,5 +43,5 @@ export default class Header {
         </div>
         </header>
         `;
-    }
+  }
 }

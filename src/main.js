@@ -1,17 +1,16 @@
 import "./assets/css/bootstrap.min.css";
 import "./assets/js/bootstrap.min";
 import "./assets/js/jquery-3.6.0.min";
-import Footer from "./components/areaFooter";
-import Header from "./components/AreaHeader";
-import Main from "./components/AreaMain";
-const header = new Header();
-const main = new Main();
-const footer = new Footer();
+import AreaFooter from "./components/AreaFooter";
+import AreaHeader from "./components/AreaHeader";
+import AreaMain from "./components/AreaMain";
+
 document.querySelector('#app').innerHTML = `
-  <div id="header">もとヘッダー</div>
+  <div id="header"></div>
   <div id="main"></div>
-  <div id="footer">もとフッター</div>
+  <div id="footer"></div>
   `
-document.querySelector('#header').innerHTML = header.html
-document.querySelector('#main').innerHTML = main.html
-document.querySelector('#footer').innerHTML = footer.html
+document.querySelector('#header').innerHTML = AreaHeader.html();
+document.querySelector('#main').innerHTML = AreaMain.html();
+AreaMain.methodz();
+document.querySelector('#footer').innerHTML = AreaFooter.html();

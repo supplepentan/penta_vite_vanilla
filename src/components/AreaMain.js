@@ -1,13 +1,15 @@
 import ButtonAlert from "./parts/ButtonAlert";
-
-export default class AreaMain extends ButtonAlert {
-    static methodz = () => {
-        ButtonAlert.methodz()
+import Canvas from "./parts/Canvas";
+export default class AreaMain {
+    static scriptz = () => {
+        ButtonAlert.scriptz();
+        Canvas.scriptz();
     }
-    static html = () => {
+    static htmlz = () => {
         return (
             `<div class="main">` +
-            ButtonAlert.html() +
+            ButtonAlert.htmlz() +
+            Canvas.htmlz() +
             `</div>`
         )
     };

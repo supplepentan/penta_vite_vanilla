@@ -10,7 +10,7 @@ document.querySelector('#app').innerHTML = `
   <div id="main"></div>
   <div id="footer"></div>
   `
-document.querySelector('#header').innerHTML = AreaHeader.html();
-document.querySelector('#main').innerHTML = AreaMain.html();
-AreaMain.methodz();
-document.querySelector('#footer').innerHTML = AreaFooter.html();
+document.querySelector('#header').innerHTML = AreaHeader.htmlz();
+document.querySelector('#main').innerHTML = AreaMain.htmlz();
+AreaMain.scriptz();
+document.querySelector('#footer').innerHTML = AreaFooter.htmlz();

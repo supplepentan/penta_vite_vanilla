@@ -1,11 +1,11 @@
 export default class ButtonAlert {
-    static methodz = () => {
+    static scriptz = () => {
         const buttonElm = document.getElementById("buttonalert")
         buttonElm.addEventListener("click", function () {
             alert("ボタンおしたね")
         })
     }
-    static html = () => {
+    static htmlz = () => {
         return `
         <button id="buttonalert">ボタン</button>
         `;

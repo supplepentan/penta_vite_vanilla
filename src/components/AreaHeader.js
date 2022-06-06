@@ -1,6 +1,6 @@
 export default class AreaHeader {
-  static methodz = () => { }
-  static html = () => {
+  static scriptz = () => { }
+  static htmlz = () => {
     return `
         <header class="header">
         <div>

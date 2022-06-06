@@ -1,6 +1,6 @@
 export default class AreaFooter {
-    static methodz = () => { }
-    static html = () => {
+    static scriptz = () => { }
+    static htmlz = () => {
         return `
         <footer class="footer">
         <div class="container">

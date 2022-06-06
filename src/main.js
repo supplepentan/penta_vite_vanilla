@@ -6,9 +6,11 @@ import AreaHeader from "./components/AreaHeader";
 import AreaMain from "./components/AreaMain";
 
 document.querySelector('#app').innerHTML = `
+  <div class="container">
   <div id="header"></div>
   <div id="main"></div>
   <div id="footer"></div>
+  </div>
   `
 document.querySelector('#header').innerHTML = AreaHeader.htmlz();
 document.querySelector('#main').innerHTML = AreaMain.htmlz();

@@ -1,22 +1,14 @@
-import ButtonAlert from "./parts/ButtonAlert";
-import Canvas from "./parts/Canvas";
-import InputCheckbox from "./parts/input/InputCheckbox";
-import InputText from "./parts/input/InputText";
+import CanvasImageComposition from "./parts/CanvasImageComposition";
 export default class AreaMain {
     static scriptz = () => {
-        ButtonAlert.scriptz();
-        Canvas.scriptz();
+        CanvasImageComposition.scriptz();
     }
     static htmlz = () => {
         return (
-            `<div class="main">` +
-            ButtonAlert.htmlz() +
+            `<div class="main row">` +
+            `<h1>テストエリア</h1>` +
             `<div>` +
-            `<h1>インプット</h1>` +
-            InputText.htmlz() +
-            `</div>` +
-            `<h1>インプット</h1>` +
-            InputCheckbox.htmlz() +
+            CanvasImageComposition.htmlz() +
             `</div>` +
             `</div>`
         )

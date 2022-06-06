@@ -16,13 +16,6 @@ export default class CanvasImageComposition {
             ctx.fillStyle = "Red";
             ctx.fillText("うな重", 45, 150);
         }
-        /**
-         * Canvas合成
-         *
-         * @param {string} base 合成結果を描画するcanvas(id)
-         * @param {array} asset 合成する素材canvas(id)
-         * @return {void}
-         */
         async function concatCanvas(base, asset) {
             const canvas = document.querySelector(base);
             const ctx = canvas.getContext("2d");
@@ -31,23 +24,11 @@ export default class CanvasImageComposition {
                 ctx.drawImage(image1, 0, 0, canvas.width, canvas.height);
             }
         }
-        /**
-        * Canvasをすべて削除する
-        *
-        * @param {string} target 対象canvasのid
-        * @return {void}
-        */
         function eraseCanvas(target) {
             const canvas = document.querySelector(target);
             const ctx = canvas.getContext("2d");
             ctx.clearRect(0, 0, canvas.width, canvas.height);
         }
-        /**
-         * Canvasを画像として取得
-         *
-         * @param {string} id  対象canvasのid
-         * @return {object}
-         */
         function getImagefromCanvas(id) {
             return new Promise((resolve, reject) => {
                 const image = new Image();
@@ -57,22 +38,21 @@ export default class CanvasImageComposition {
                 image.src = ctx.canvas.toDataURL();
             });
         }
-    }
-    // #image1に画像を描画
-    drawImage1();
-    // #image2にテキストを描画
-    drawImage2();
+        // #image1に画像を描画
+        drawImage1();
+        // #image2にテキストを描画
+        drawImage2();
         // 「+」ボタンを押したら合成
         document.querySelector("#btn-concat").addEventListener("click", () => {
-    concatCanvas("#concat", ["#image1", "#image2"]);
-});
-// 「消しゴム」ボタンを押したらクリア
-document.querySelector("#btn-eraser").addEventListener("click", () => {
-    eraseCanvas("#concat");
-});
-    };
+            concatCanvas("#concat", ["#image1", "#image2"]);
+        });
+        // 「消しゴム」ボタンを押したらクリア
+        document.querySelector("#btn-eraser").addEventListener("click", () => {
+            eraseCanvas("#concat");
+        });
+    }
     static htmlz = () => {
-    return `
+        return `
         <div class="flex-container">
         <!-- 合成するcanvasその1 -->
         <canvas id="image1" width="200" height="170"></canvas>
@@ -91,5 +71,5 @@ document.querySelector("#btn-eraser").addEventListener("click", () => {
         <li>「<img src="icon/eraser-solid.svg" width="18" height="18">」ボタンをクリックすると合成結果をクリアします</li>
         </ul>
         `;
-}
+    }
 }

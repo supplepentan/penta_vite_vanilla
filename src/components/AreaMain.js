@@ -6,8 +6,8 @@ export default class AreaMain {
     static htmlz = () => {
         return (
             `<div class="main row">` +
-            `<h1>テストエリア</h1>` +
-            `<div>` +
+            `<h1 class="bg-secondary text-center">テストエリア</h1>` +
+            `<div class="bg-light">` +
             CanvasImageComposition.htmlz() +
             `</div>` +
             `</div>`

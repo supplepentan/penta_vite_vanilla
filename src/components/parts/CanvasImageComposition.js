@@ -1,27 +1,38 @@
 export default class CanvasImageComposition {
     static scriptz = () => {
         function drawImage1() {
-            const Unaju = new Image();
-            Unaju.src = "image/unajyu.png";
-            Unaju.onload = () => {
+            const img1 = new Image();
+            img1.src = "../../assets/img/supplepentan.png";
+            img1.onload = () => {
                 const canvas = document.querySelector("#image1");
                 const ctx = canvas.getContext("2d");
-                ctx.drawImage(Unaju, 0, 0, canvas.width, canvas.height);
+                ctx.drawImage(img1, 0, 0, canvas.width, canvas.height);
             }
         }
+        function drawImage2() {
+            const img2 = new Image();
+            img2.src = "../../assets/img/unajyu.png";
+            img2.onload = () => {
+                const canvas = document.querySelector("#image2");
+                const ctx = canvas.getContext("2d");
+                ctx.drawImage(img2, 0, 0, canvas.width, canvas.height);
+            }
+        }
+        /*
         function drawImage2() {
             const canvas = document.querySelector("#image2");
             const ctx = canvas.getContext("2d");
             ctx.font = "32px serif";
-            ctx.fillStyle = "Red";
-            ctx.fillText("うな重", 45, 150);
+            ctx.fillStyle = "Blue";
+            ctx.fillText("Supplepentan", 0, 150);
         }
-        async function concatCanvas(base, asset) {
-            const canvas = document.querySelector(base);
+        */
+        async function concatCanvas(image1, image2) {
+            const canvas = document.querySelector(image1);
             const ctx = canvas.getContext("2d");
-            for (let i = 0; i < asset.length; i++) {
-                const image1 = await getImagefromCanvas(asset[i]);
-                ctx.drawImage(image1, 0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < image2.length; i++) {
+                const imageMix = await getImagefromCanvas(image2[i]);
+                ctx.drawImage(imageMix, 0, 0, canvas.width, canvas.height);
             }
         }
         function eraseCanvas(target) {
@@ -53,23 +64,35 @@ export default class CanvasImageComposition {
     }
     static htmlz = () => {
         return `
-        <div class="flex-container">
-        <!-- 合成するcanvasその1 -->
-        <canvas id="image1" width="200" height="170"></canvas>
-        <div><img src="icon/plus-solid.svg" width="32" height="32"></div>
-        <!-- 合成するcanvasその2 -->
-        <canvas id="image2" width="200" height="170"></canvas>
-        <p><button type="button" id="btn-concat"><img src="icon/equals-solid.svg" width="32" height="32"></button></p>
-        <!-- 合成結果用のcanvas -->
-        <canvas id="concat" width="200" height="170"></canvas>
+        <div class="row d-flex align-items-center">
+          <div class="col">
+            <!-- 合成するcanvasその1 -->
+            <canvas id="image1" class="border" width="200" height="170"></canvas>
+          </div>
+          <div class="col">
+            <img src="../../assets/img/icon/plus-solid.svg" width="32" height="32">
+          </div>
+          <div class="col">
+            <!-- 合成するcanvasその2 -->
+            <canvas id="image2" class="border" width="200" height="170"></canvas>
+          </div>
+          <div class="col">
+            <p><button type="button" id="btn-concat"><img src="../../assets/img/icon/equals-solid.svg" width="32" height="32"></button></p>
+          </div>
+          <div class="col">
+            <!-- 合成結果用のcanvas -->
+            <canvas id="concat" class="border" width="200" height="170"></canvas>
+            </div><!-- 消しゴム -->
+            <p id="eraser"><button type="button" id="btn-eraser"><img src="../../assets/img/icon/eraser-solid.svg" width="32" height="32"></button></p>
         </div>
-        <!-- 消しゴム -->
-        <p id="eraser"><button type="button" id="btn-eraser"><img src="icon/eraser-solid.svg" width="32" height="32"></button></p>
-        </section>
+        <div class="row">
+        <div class="col-12">
         <ul>
         <li>「＝」ボタンをクリックすると2つのcanvasを合成します</li>
-        <li>「<img src="icon/eraser-solid.svg" width="18" height="18">」ボタンをクリックすると合成結果をクリアします</li>
+        <li>「<img src="../../assets/img/icon/eraser-solid.svg" width="18" height="18">」ボタンをクリックすると合成結果をクリアします</li>
         </ul>
+        </div>
+        </div>
         `;
     }
 }

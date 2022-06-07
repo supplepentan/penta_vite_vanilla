@@ -2,9 +2,8 @@ export default class AreaHeader {
   static scriptz = () => { }
   static htmlz = () => {
     return `
-        <header class="header">
-        <div>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div id="header" class="row bg-info">
+        <nav class="navbar navbar-expand-lg navbar-light bg-info">
           <div class="container-fluid">
             <a class="navbar-brand" href="#">Navbar</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,7 +40,6 @@ export default class AreaHeader {
           </div>
         </nav>
         </div>
-        </header>
         `;
   }
 }

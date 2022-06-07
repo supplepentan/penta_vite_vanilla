@@ -2,7 +2,7 @@ export default class CanvasImageComposition {
     static scriptz = () => {
         function drawImage1() {
             const img1 = new Image();
-            img1.src = "../../assets/img/supplepentan.png";
+            img1.src = "../../assets/img/animal.png";
             img1.onload = () => {
                 const canvas = document.querySelector("#image1");
                 const ctx = canvas.getContext("2d");
@@ -11,7 +11,7 @@ export default class CanvasImageComposition {
         }
         function drawImage2() {
             const img2 = new Image();
-            img2.src = "../../assets/img/unajyu.png";
+            img2.src = "../../assets/img/supplepentan_t.png";
             img2.onload = () => {
                 const canvas = document.querySelector("#image2");
                 const ctx = canvas.getContext("2d");
@@ -86,7 +86,7 @@ export default class CanvasImageComposition {
             <p id="eraser"><button type="button" id="btn-eraser"><img src="../../assets/img/icon/eraser-solid.svg" width="32" height="32"></button></p>
         </div>
         <div class="row">
-        <div class="col-12">
+        <div class="col">
         <ul>
         <li>「＝」ボタンをクリックすると2つのcanvasを合成します</li>
         <li>「<img src="../../assets/img/icon/eraser-solid.svg" width="18" height="18">」ボタンをクリックすると合成結果をクリアします</li>

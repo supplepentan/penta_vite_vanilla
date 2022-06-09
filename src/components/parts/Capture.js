@@ -1,7 +1,9 @@
 import html2canvas from "html2canvas";
+import ApingCanvas from "./ApingCanvas";
 
 export default class Capture {
     static scriptz = () => {
+        ApingCanvas.scriptz();
         const buttonElm = document.getElementById('capturebutton');
         buttonElm.addEventListener('click', () => {
             html2canvas(document.querySelector('#capture')).then((canvas) => {
@@ -13,13 +15,14 @@ export default class Capture {
         });
     };
     static htmlz = () => {
-        return `
-        <div>
-        <button id="capturebutton">画像を保存</button>
-        <div id="capture">
-        <h1>きゃぷちゃ</h1>
-        </div>
-        </div>
-        `;
+        return (
+            `<div>` +
+            `<button id="capturebutton">画像を保存</button>` +
+            `<div id="capture">` +
+            `<h1>きゃぷちゃ</h1>` +
+            ApingCanvas.htmlz() +
+            `</div>` +
+            `</div>`
+        );
     };
 }

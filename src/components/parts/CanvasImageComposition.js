@@ -1,3 +1,4 @@
+import "../../assets/js/apng-canvas.min";
 export default class CanvasImageComposition {
     static scriptz = () => {
         function drawImage1() {

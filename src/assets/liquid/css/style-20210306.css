@@ -1,0 +1,864 @@
+@charset "utf-8";
+
+/*
+LIQUID DESIGN Ltd.
+https://lqd.jp/
+*/
+body {
+    font-family: Verdana, "游ゴシック Medium", "Yu Gothic Medium", YuGothic, "游ゴシック体", sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100%;
+    /* color: #fff; dialog bg white */
+    background-color: #333;
+}
+
+body.basic {
+    background-image: url('/img/ar_info_w.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 300px auto;
+    -moz-background-size: 300px auto;
+    -webkit-background-size: 300px auto;
+    -o-background-size: 300px auto;
+    -ms-background-size: 300px auto;
+}
+
+h2 {
+    font-size: x-large;
+    margin: 20px 0;
+}
+
+.liquid-link,
+.liquid-map {
+    display: inline-block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: #333;
+    color: #fff;
+    z-index: 12;
+    font-size: 14px;
+    line-height: 20px;
+    padding: .25rem .5rem;
+    text-decoration: none;
+    opacity: 0.9;
+    cursor: pointer;
+    border: 2px solid #32BDEB;
+}
+
+.liquid-help,
+.liquid-help-custom {
+    position: fixed;
+    top: 7px;
+    left: 7px;
+    color: #fff;
+    z-index: 98;
+    display: block;
+    cursor: pointer;
+    text-decoration: none;
+    opacity: 0.9;
+}
+
+.vr360 .liquid-help {
+    top: 40px;
+}
+
+.liquid-help-modal,
+.liquid-help-modal-custom {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    height: 100vh;
+    background-color: #333;
+    color: #fff;
+    z-index: 99;
+    opacity: 0.9;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+.liquid-help-modal a,
+.liquid-help-modal-custom a {
+    color: #fff;
+}
+
+.liquid-frame,
+.liquid-mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 12;
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.liquid-ar-frame {
+    pointer-events: none;
+    opacity: 0;
+    position: fixed;
+    z-index: 9;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    overflow: hidden;
+}
+
+#liquid-ar-frame {
+    position: static;
+    z-index: 8;
+    width: 100%;
+    height: 100%;
+}
+
+#liquid-ar-frame2 {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 9;
+    margin: 0;
+    width: 100%;
+    height: auto;
+    min-height: initial;
+}
+
+/* framemode */
+.framemode .liquid-guide-marker {
+    display: none !important;
+}
+
+.framemode .liquid-ar-frame {
+    opacity: 1 !important;
+}
+
+.liquid-direction {
+    position: fixed;
+    z-index: 90;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    color: #fff;
+    font-weight: bold;
+    top: 0;
+    left: 0;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.liquid-link-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0 1rem;
+    background-color: #333;
+    color: #fff;
+    z-index: 14;
+    text-align: center;
+    opacity: 0.9;
+    overflow-y: scroll;
+    /* -webkit-overflow-scrolling: touch; */
+}
+
+.liquid-link-modal a {
+    color: #fff;
+}
+
+.liquid-link-modal img {
+    width: 80vw;
+    height: auto;
+}
+
+.liquid-link-modal .close {
+    cursor: pointer;
+    margin: 1.5rem auto 4rem auto;
+    padding: .5rem;
+}
+
+.liquid-link-modal .cp_mogiri {
+    cursor: pointer;
+    background-color: #00A5D4;
+}
+
+.liquid-link-modal .cp_mogiri_nowd {
+    font-size: small;
+}
+
+.liquid-link-modal.exchanged img {
+    opacity: 0.3;
+}
+
+.liquid-link-modal.exchanged .cp_mogiri {
+    cursor: auto;
+    background-color: #F06060;
+    pointer-events: none;
+}
+
+.liquid-map {
+    right: auto;
+    left: 0;
+    border-color: #F06060;
+}
+
+.liquid-map-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #333;
+    color: #fff;
+    z-index: 14;
+    text-align: center;
+    opacity: 0.9;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+.liquid-map-modal .map {
+    display: block;
+    width: 80%;
+    height: auto;
+    margin: 20px auto;
+}
+
+.liquid-map-modal .page {
+    display: inline-block;
+    text-decoration: none;
+    color: #333;
+    padding: 10px;
+    background: #fff;
+    line-height: 1;
+    border-radius: 50%;
+    font-weight: bold;
+    margin: 5px;
+    font-size: 20px;
+    height: 20px;
+    width: 20px;
+}
+
+.liquid-map-modal .pg .pg1,
+.liquid-map-modal .pg1 .pg1,
+.liquid-map-modal .pg2 .pg2,
+.liquid-map-modal .pg3 .pg3,
+.liquid-map-modal .pg4 .pg4,
+.liquid-map-modal .pg5 .pg5,
+.liquid-map-modal .pg6 .pg6,
+.liquid-map-modal .pg7 .pg7,
+.liquid-map-modal .pg8 .pg8,
+.liquid-map-modal .pg9 .pg9,
+.liquid-map-modal .pg10 .pg10 {
+    background: #32BDEB;
+}
+
+.liquid-guide,
+.liquid-guide-marker,
+.liquid-guide-stamp,
+.liquid-loading {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 40px;
+    z-index: 13;
+    background: #333;
+    color: #fff;
+    margin: 10px auto;
+    padding: 10px;
+    text-align: center;
+    opacity: 0.9;
+}
+
+.liquid-mess {
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 10px 0;
+    width: 100vw;
+    text-align: center;
+    z-index: 13;
+    font-size: 12px;
+    color: #fff;
+    background-color: #000;
+}
+
+.btn {
+    display: block;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    background-color: #32BDEB;
+    color: #fff !important;
+    font-weight: bold;
+}
+
+.liquid-guide-stamp {
+    z-index: 14;
+}
+
+.liquid-effect {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 13;
+    width: 100%;
+    height: 100%;
+}
+
+.liquid-effect img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.liquid-effect.active,
+.liquid-guide-stamp.active {
+    display: block;
+    pointer-events: none;
+    animation: fadeInOut 4s ease 0s 1 normal forwards;
+    -webkit-animation: fadeInOut 4s ease 0s 1 normal forwards;
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0
+    }
+
+    50% {
+        opacity: 0.8
+    }
+
+    100% {
+        opacity: 0
+    }
+}
+
+@-webkit-keyframes fadeInOut {
+    0% {
+        opacity: 0
+    }
+
+    50% {
+        opacity: 0.8
+    }
+
+    100% {
+        opacity: 0
+    }
+}
+
+.liquid-btn,
+.liquid-info {
+    position: fixed;
+    z-index: 13;
+    bottom: 30px;
+    left: 0;
+    right: 0;
+    width: 10em;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #32BDEB;
+    opacity: 0.9;
+    color: #fff;
+    font-size: large;
+    margin: auto;
+    padding: .5rem 1rem;
+    text-align: center;
+}
+
+.liquid-loader,
+.liquid-loader-img {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    top: 0;
+    left: 0;
+    color: #fff;
+    background: #333 0 1px;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+}
+
+/* stamp */
+.liquid-stamps {
+    position: fixed;
+    bottom: 40px;
+    left: 0;
+    right: 0;
+    z-index: 12;
+    text-align: center;
+    background-color: #fff;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    -moz-background-size: 100% auto;
+    -webkit-background-size: 100% auto;
+    -o-background-size: 100% auto;
+    -ms-background-size: 100% auto;
+    width: 340px;
+    height: 160px;
+    margin: auto;
+    opacity: 0.9;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.liquid-stamp {
+    flex-shrink: 0;
+    width: 65px;
+    height: 65px;
+    line-height: 59px;
+    margin: 0;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 35px;
+    color: #f1f1f1;
+    box-sizing: border-box;
+    border: 3px dashed #00bff0;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    -moz-background-size: 100% auto;
+    -webkit-background-size: 100% auto;
+    -o-background-size: 100% auto;
+    -ms-background-size: 100% auto;
+    transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+}
+
+.liquid-stamps[data-num="2"] .liquid-stamp,
+.liquid-stamps[data-num="3"] .liquid-stamp {
+    width: 100px;
+    height: 100px;
+    line-height: 94px;
+}
+
+.liquid-stamps.active {
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    opacity: 1;
+    display: block;
+    top: 0;
+    bottom: auto;
+    background-image: none;
+}
+
+.liquid-stamps.active .liquid-stamp {
+    width: 300px;
+    height: 300px;
+    margin: 50px auto;
+    line-height: 294px;
+}
+
+.liquid-stamp.active {
+    border: 0 none;
+    background-color: #00bff0;
+    animation: stampget 1s ease 0s 1 alternate none running;
+}
+
+@keyframes stampget {
+    0% {
+        transform: scale(0.5);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: none;
+    }
+}
+
+.liquid-copy {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    color: #fff;
+    font-size: 12px;
+    z-index: 15;
+}
+
+.liquid-copy a {
+    display: inline-block;
+    color: #fff;
+    text-decoration: none;
+}
+
+.liquid-share {
+    position: fixed;
+    bottom: 7px;
+    right: 7px;
+    color: #fff;
+    z-index: 15;
+    display: block;
+    cursor: pointer;
+    text-decoration: none;
+    opacity: 0.9;
+}
+
+.liquid-help img,
+.liquid-help-custom img,
+.liquid-share img,
+#liquid-camera img {
+    width: 24px;
+    height: 24px;
+}
+
+.liquid-help-space {
+    position: fixed;
+    pointer-events: none;
+    bottom: 10px;
+    z-index: 2;
+    font-size: small;
+    padding: 10px;
+    color: #999;
+}
+
+.liquid-movie {
+    position: fixed;
+    z-index: 11;
+    left: 0;
+    bottom: 77px;
+    width: 100%;
+    text-align: center;
+    overflow: visible;
+}
+
+.liquid-movie-desc {
+    color: #fff;
+    background: #333;
+    font-size: small;
+    line-height: 1.2;
+    width: 320px;
+    margin: auto;
+    padding: 5px 0;
+}
+
+.liquid-movie-btn {
+    position: fixed;
+    z-index: 10;
+    text-align: center;
+    left: 0;
+    right: 0;
+    bottom: 77px;
+    width: 15em;
+    margin: auto;
+}
+
+.liquid-slide {
+    position: fixed;
+    z-index: 11;
+    left: 0;
+    bottom: 60px;
+    width: 100%;
+    overflow-y: scroll;
+}
+
+.liquid-slide .cards {
+    width: calc(175vw + 150px);
+    text-align: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.liquid-slide .card {
+    display: inline-block;
+    margin: 10px;
+    width: 35vw;
+    text-decoration: none;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fffffff0;
+}
+
+.liquid-slide .card img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.liquid-slide .card>div {
+    color: #333;
+    background: #fff;
+    line-height: 1.2;
+    font-size: 14px;
+    padding: 5px;
+    margin: 0;
+}
+
+/* photo */
+#liquid-photo {
+    position: fixed;
+    z-index: 12;
+    bottom: 30px;
+    left: 0;
+    right: 0;
+    width: 60px;
+    height: 60px;
+    background-color: #fff;
+    border: 2px solid #333;
+    border-radius: 50%;
+    line-height: 1;
+    margin: auto;
+}
+
+#liquid-photo::after {
+    content: '';
+    position: absolute;
+    z-index: 12;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 50px;
+    height: 50px;
+    border: 1px solid #333;
+    border-radius: 50%;
+    line-height: 1;
+    margin: auto;
+}
+
+#liquid-photos {
+    position: fixed;
+    z-index: 13;
+    bottom: 30px;
+    right: 30px;
+    width: 100px;
+    background: #fff;
+    border: 1px solid #fff;
+    border-radius: 5px;
+}
+
+#liquid-photo-img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin: 0;
+}
+
+#liquid-photo-close {
+    position: absolute;
+    top: -7px;
+    right: -7px;
+    z-index: 13;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 14px;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    background-color: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#liquid-photo-txt {
+    color: #333;
+    margin: 0;
+    padding: 1px;
+    font-size: 10px;
+    text-align: center;
+    letter-spacing: -0.05em;
+}
+
+#liquid-flash {
+    pointer-events: none;
+    position: fixed;
+    z-index: 13;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffffff21;
+}
+
+#liquid-camera {
+    position: fixed;
+    z-index: 12;
+    bottom: 48px;
+    right: 7px;
+}
+
+.liquid-ar-button {
+    background-color: #ff0000;
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+    position: fixed;
+    bottom: 100px;
+    left: 15%;
+    width: 70%;
+    height: 50px;
+    font-size: medium;
+}
+
+/* ImageTracking */
+.arjs-loader {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #000;
+    z-index: 97;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.arjs-loader div {
+    text-align: center;
+    font-size: 1.25em;
+    color: white;
+}
+
+/* VR */
+.vr360 .a-enter-vr {
+    position: fixed;
+    right: 7px !important;
+    bottom: 40px !important;
+}
+
+/* UI */
+.none {
+    display: none;
+}
+
+.ui {
+    position: absolute;
+    z-index: 19;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 10px 15px 30px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.ui a {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    background-color: #ffffff;
+    line-height: 100%;
+    color: #303030;
+    margin: 10px 3px;
+    border-radius: 50%;
+    position: relative;
+
+}
+
+.ui a i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.ui a:active {
+    color: #ff0000;
+}
+
+#snap {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    visibility: hidden;
+}
+
+.ui a.disabled {
+    pointer-events: none;
+    color: #cccccc;
+}
+
+#snap.visible {
+    visibility: visible;
+}
+
+.fade {
+    animation: fadeIn 2s ease 0s 1 normal;
+    -webkit-animation: fadeIn 2s ease 0s 1 normal;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0
+    }
+
+    100% {
+        opacity: 1
+    }
+}
+
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0
+    }
+
+    100% {
+        opacity: 1
+    }
+}
+
+/* タテ向き */
+@media screen and (orientation: portrait) {
+    .yoko .liquid-direction {
+        display: flex;
+    }
+}
+
+/* ヨコ向き */
+@media screen and (orientation: landscape) {
+    .tate .liquid-direction {
+        display: flex;
+    }
+
+    #liquid-photo {
+        top: calc(50% - 30px);
+        right: 30px;
+        left: auto;
+        bottom: auto;
+    }
+
+    #liquid-ar-frame2 {
+        width: auto;
+        height: 100vh;
+        min-height: 100vh;
+    }
+
+    /* TabBar */
+    #liquid-ar-frame2 {
+        height: -webkit-fill-available;
+        min-height: -webkit-fill-available;
+    }
+}

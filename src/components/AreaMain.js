@@ -1,14 +1,14 @@
-import CanvasImageComposition from "./parts/CanvasImageComposition";
+import Capture from "./parts/Capture";
 export default class AreaMain {
     static scriptz = () => {
-        CanvasImageComposition.scriptz();
+        Capture.scriptz();
     }
     static htmlz = () => {
         return (
             `<div class="main row">` +
             `<h1 class="bg-secondary text-center text-light">Test Area</h1>` +
-            `<div class="bg-light">` +
-            CanvasImageComposition.htmlz() +
+            `<div>` +
+            Capture.htmlz() +
             `</div>` +
             `</div>`
         )

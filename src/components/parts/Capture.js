@@ -15,14 +15,14 @@ export default class Capture {
         });
     };
     static htmlz = () => {
-        return (
-            `<div>` +
-            `<button id="capturebutton">画像を保存</button>` +
-            `<div id="capture">` +
-            `<h1>きゃぷちゃ</h1>` +
-            ApingCanvas.htmlz() +
-            `</div>` +
-            `</div>`
-        );
+        return (`
+            <div>
+            <button id="capturebutton">画像を保存</button>
+            <div id="capture">
+            <h1>きゃぷちゃ</h1>
+            ${ApingCanvas.htmlz()}
+            </div>
+            </div>
+        `);
     };
 }

@@ -64,7 +64,7 @@ export default class CanvasImageComposition {
         });
     }
     static htmlz = () => {
-        return `
+        return (`
         <div class="row d-flex align-items-center">
           <div class="col">
             <!-- 合成するcanvasその1 -->
@@ -94,6 +94,6 @@ export default class CanvasImageComposition {
         </ul>
         </div>
         </div>
-        `;
+        `);
     }
 }
